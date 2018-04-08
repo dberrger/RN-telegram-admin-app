@@ -1,33 +1,64 @@
 import React, { Component } from "react";
-import { ScrollView, Text, Linking, View } from "react-native";
-import { Card, Button, SocialIcon } from "react-native-elements";
+import { ScrollView, Linking, View, StyleSheet } from "react-native";
+import { Card, Button, Text, Header, Divider} from "react-native-elements";
 import { connect } from 'react-redux';
 import { middleware } from "../../actions/middleware";
- 
-class HomeScreen extends Component {
-  
-  
-  render() {
+// import LogoTitle  from "../LogoTitle";
 
-	const fetchLogs = () => {
-		const { navigation, dispatch} = this.props;
-		navigation.navigate('Logs');
-		dispatch(middleware.getLogs());
-	}
+const HomeScreen = ({fetchLogs, fetchStats}) => {
+ 
     return (
-      <View>
-		  <Text> HOME </Text>
-		  <Button
-		  title="Go to Logs"
-          onPress={() => fetchLogs()}
-		  />
-		  <Button
-		  title="Go to Stats"
-          onPress={() => this.props.navigation.navigate('Statistics')}
-		  />
-      </View>
+		<Card>
+			<Text h4 style={styles.textHeaderStyle}> Menu </Text>
+			<Divider/>
+			<Button
+				title="Go to Logs"
+				titleStyle={{ fontWeight: "700" }}
+				buttonStyle={logsButtonStyle}
+				containerStyle={{ marginTop: 20 }}
+				onPress={() => {fetchLogs()}}
+			/>
+			<Button	
+				title="Go to Stats"
+				onPress={() =>fetchStats()}
+				titleStyle={{ fontWeight: "700" }}
+				buttonStyle={statsButtonStyle}
+				containerStyle={{ marginTop: 20 }}
+			/>
+		</Card>
     );
-  }
 }
 
-export default connect(null)(HomeScreen);
+const styles = StyleSheet.create({
+	buttonStyle: {
+		color: 'red',
+		marginTop: 20,
+		padding: 20,
+		backgroundColor: 'green'
+	},
+	textHeaderStyle: {
+		fontSize: 20,
+		textAlign: 'center',
+		paddingBottom: 10
+	}
+});
+
+const statsButtonStyle = {
+    backgroundColor: "rgba(92, 99,216, 1)",
+    width: 350,
+    height: 45,
+    borderColor: "transparent",
+    borderWidth: 0.2,
+    borderRadius: 5
+};
+
+const logsButtonStyle = {
+    backgroundColor: "teal",
+    width: 350,
+    height: 45,
+    borderColor: "transparent",
+    borderWidth: 0.2,
+    borderRadius: 5
+};
+
+export default HomeScreen;

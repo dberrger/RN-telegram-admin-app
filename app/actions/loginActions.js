@@ -8,8 +8,8 @@ function loginRequest() {
     return { type: loginConstants.LOGIN_REQUEST }
 }
 
-function loginSuccess(user) {
-    return { type: loginConstants.LOGIN_SUCCESS, user }
+function loginSuccess(token) {
+    return { type: loginConstants.LOGIN_SUCCESS, token }
 }
 
 function loginFailure(message) {

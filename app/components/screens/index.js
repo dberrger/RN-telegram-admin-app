@@ -1,13 +1,13 @@
 import HomeScreen from "./HomeScreen";
-import LogsScreen from "./LogsScreen";
-import SignInScreen from "./SignInScreen";
-import StatisticsScreen from "./StatisticsScreen";
+import LogsScreen from "./LogsScreen/LogsScreen";
+import LoginScreen from "./LoginScreen";
+import StatsScreen from "./StatsScreen/StatsScreen";
 
 const screen = {
     HomeScreen,
     LogsScreen,
-    SignInScreen,
-    StatisticsScreen
+    LoginScreen,
+    StatsScreen
 }
 
 export default screen;

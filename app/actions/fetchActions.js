@@ -23,7 +23,7 @@ function fetchStatisticsRequest() {
 }
 
 function fetchStatisticsSuccess(data) {
-    return { type: fetchConstants.FETCH_STATISTICS_REQUEST, data }
+    return { type: fetchConstants.FETCH_STATISTICS_SUCCESS, data }
 }
 
 function fetchStatisticsFailure(message) {

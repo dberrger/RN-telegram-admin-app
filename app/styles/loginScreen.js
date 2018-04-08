@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const signInStyles = StyleSheet.create({
+export const loginScreen = StyleSheet.create({
     scroll: {
       backgroundColor: '#E1D7D8',
       padding: 30,
@@ -17,19 +17,19 @@ export const signInStyles = StyleSheet.create({
       height: 60,
       fontSize: 25,
       backgroundColor: '#FFF'
-  },
-  buttonWhiteText: {
-    fontSize: 20,
-    color: '#FFF',
-  },
-  buttonBlackText: {
-    fontSize: 20,
-    color: '#595856'
-  },
-  primaryButton: {
-    backgroundColor: '#34A853'
-  },
-  footer: {
-   marginTop: 100
-  }
+    },
+    buttonWhiteText: {
+      fontSize: 20,
+      color: '#FFF',
+    },
+    buttonBlackText: {
+      fontSize: 20,
+      color: '#595856'
+    },
+    primaryButton: {
+      backgroundColor: '#34A853'
+    },
+    footer: {
+    marginTop: 100
+    }
   });

@@ -13,10 +13,11 @@ function login(username, password) {
     return dispatch => {
         dispatch(loginActions.loginRequest());
 
-        services.login(username, password)
+    services.login(username, password)
                     .then(
-                        user => {
-                            dispatch(loginActions.loginSuccess(user));
+                        token => {
+                            console.log(token)
+                            dispatch(loginActions.loginSuccess(token));
                         },
                         error => {
                             dispatch(loginActions.loginFailure(error));
@@ -26,12 +27,12 @@ function login(username, password) {
 }
 
 function logout() { 
-
     return dispatch => {
-        console.log(services.logout());
-        services.logout() 
-            ? null
-            : dispatch(loginActions.logout()); 
+        services.logout().then(
+            success => {
+                 dispatch(loginActions.logout());
+            }
+        );
     }
 }
 
@@ -42,7 +43,7 @@ function getLogs() {
         services.logs()
                     .then(
                         data => {
-                            dispatch(fetchActions.fetchLogsSuccess(data));
+                            dispatch(fetchActions.fetchLogsSuccess(data.payload));
                         },
                         error => {
                             dispatch(fetchActions.fetchLogsFailure(error));
@@ -58,7 +59,7 @@ function getStatistics(filterVal) {
         services.statistics(filterVal)
                     .then(
                         data => {
-                            dispatch(fetchActions.fetchStatisticsSuccess(data));
+                            dispatch(fetchActions.fetchStatisticsSuccess(data.payload));
                         },
                         error => {
                             dispatch(fetchActions.fetchStatisticsFailure(error));
