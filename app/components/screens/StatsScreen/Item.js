@@ -6,10 +6,11 @@ const Item = ({item}) => (
     <Card>  
         <View>
             <View style={{flex: 1, flexDirection: 'row'}}>
-                <Text h4>{item.name}</Text>
-                <Text>{item.time}</Text>
+                <Text h4>{item.first_name}</Text>
+                <Text h4>{item.username}</Text>
+                <Text>{item.date}</Text>
             </View>
-            <Text>{item.message}</Text>    
+            <Text>{item.text}</Text>    
         </View>
     </Card>
 );

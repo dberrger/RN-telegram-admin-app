@@ -54,7 +54,7 @@ static navigationOptions = {
 }
 
 export default connect((state)=>({
-  data: state.statisticsReducer.statistics.filter(user => user.name.includes(state.searchUserReducer.searchValue)),
+  data: state.statisticsReducer.statistics.filter(user => user.first_name.includes(state.searchUserReducer.searchValue)),
   fetching: state.statisticsReducer.fetching
 }),
 (dispatch) => ({

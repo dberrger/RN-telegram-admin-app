@@ -40,4 +40,4 @@ const dateStyle = {
 	dateInput: {
 	  marginLeft: 36
 	}
-  }
+}
