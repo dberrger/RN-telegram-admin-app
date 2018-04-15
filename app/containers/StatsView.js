@@ -4,6 +4,7 @@ import StatsScreen from "../components/screens/StatsScreen/StatsScreen";
 import { View, Text } from "react-native";
 import { setFilter } from "../actions/utilActions";
 import {middleware} from "../actions/middleware";
+import Loading from "../components/Loading";
 
 class StatsView extends Component {
   constructor(props){
@@ -38,9 +39,7 @@ static navigationOptions = {
 		const { fetching } = this.props;
 		return (
 		fetching ? 
-		<View> 
-			<Text> Loading.. </Text>
-		</View> :
+		<Loading/> :
 		<StatsScreen
 			data={this.props.data}
 			findUser={this.findUser}

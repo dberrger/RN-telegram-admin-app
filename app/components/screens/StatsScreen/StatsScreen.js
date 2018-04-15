@@ -9,9 +9,9 @@ import Item from "./Item";
 const StatsScreen = ({data, findUser, setDateFilter, date, searchInput, getMessagesByDate}) => (
 
     <ScrollView>
-        <Card  containerStyle={{margin: 0 , paddingTop: 20}}>	
-                <View style={{ flexDirection: 'column' }}>
-                    <View style={{ flexDirection: 'row', justifyContent: "space-between"}}>
+        <Card  containerStyle={styles.cardContainerStyle}>	
+                <View style={styles.outherView}>
+                    <View style={styles.viewStyle}>
                         <Datepicker 
                             setDateFilter={setDateFilter}
                         />
@@ -20,17 +20,51 @@ const StatsScreen = ({data, findUser, setDateFilter, date, searchInput, getMessa
                             onPress={ () => getMessagesByDate()}
                         />
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent: "space-between"}}>
+                    <View style={styles.viewStyle}>
                         <Input
                             value={searchInput}
                             onChangeText={ (value) => findUser(value)}
-                            placeholder='Enter something.. '
+                            placeholder='Enter username.. '
                         />
                     </View>
                 </View>
-        </Card>	
-        {data.map((item)=> <Item item={item}/>)}
+        </Card>
+        { data.length ? data.map((item, i)=> <Item item={item} key={i}/>) 
+                      : <Card style={styles.emptyContainerStyle}>
+                          <Text style={styles.emptyStyle}> Empty! </Text>
+                          <Text style={styles.emptyStyle}> Use datepicker to fetch messages </Text>
+                        </Card>
+        }
     </ScrollView>
 );
 
 export default StatsScreen;
+
+
+const styles = StyleSheet.create({
+	viewStyle: {
+        paddingTop: 10,
+        flexDirection: 'row', 
+        justifyContent: "space-between",       
+    },
+    outherView : {
+        flexDirection: 'column'
+    },
+    cardContainerStyle: {
+        margin: 0,
+        paddingTop: 20
+    },
+    emptyStyle : {
+        fontSize: 22,
+        paddingTop: 30,
+        paddingBottom: 30,
+        color: "#000",
+		fontFamily: "Arial",
+        fontStyle: "normal",
+        textAlign: "center"
+    },
+    emptyContainerStyle: {
+        margin: 0,
+        backgroundColor: 'red'
+    }
+});

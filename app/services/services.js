@@ -6,7 +6,7 @@ export const services = {
     logs, statistics
 }
 
-const BASE_URL = 'https://b3a3e18c.ngrok.io';
+const BASE_URL = 'https://c23ac6cd.ngrok.io';
 
 async function login(username, password) {
     console.log("!!! "+ username);

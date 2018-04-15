@@ -10,6 +10,7 @@ const LogsScreen = ({data, getDetailedInfo , currentQuery}) => (
 			<Text h4 style={styles.mainHeaderStyle}> The most popular requests: </Text>
 			<StatsChart data={data} getDetailedInfo={getDetailedInfo} />
 		</Card>
+		{currentQuery ? 
 		<Card>
 				<Text style={styles.textHeaderStyle}> Detailed info: </Text>
 				<Divider/>
@@ -22,6 +23,11 @@ const LogsScreen = ({data, getDetailedInfo , currentQuery}) => (
 						<Text style={styles.keyWords}> Times used: </Text> {currentQuery.count}
 						</Text>
 		</Card>
+		: 
+		<Card>
+			<Text style={styles.preloadStyle}> Click on the chart to get into details info </Text>
+		</Card>
+		}
 	</ScrollView>
 );
 
@@ -44,6 +50,11 @@ const styles = StyleSheet.create({
 	},
 	keyWords: {
 		fontSize: 18,
+		color: "#406299"
+	},
+	preloadStyle : {
+		fontSize: 20,
+		textAlign: 'center',
 		color: "#406299"
 	}
 });

@@ -3,6 +3,7 @@ import { ScrollView, Linking, View, StyleSheet } from "react-native";
 import { Card, Button, Text, Header, Divider} from "react-native-elements";
 import { connect } from 'react-redux';
 import LogsScreen from "../components/screens/LogsScreen/LogsScreen";
+import Loading from "../components/Loading";
 
 class LogsView extends Component {
 	constructor(props) {
@@ -24,9 +25,7 @@ class LogsView extends Component {
 		const { fetching, data } = this.props;
 		return (
 			fetching ? 
-			<View> 
-				<Text> Loading.. </Text>
-			</View> :
+			<Loading/> :
 			<LogsScreen data={data}  getDetailedInfo={getDetailedInfo} currentQuery={this.state.currentQuery}/>
 		);
 	}
