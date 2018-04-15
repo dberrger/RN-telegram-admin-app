@@ -17,42 +17,50 @@ class LoginScreen extends Component {
 		super(props);
 
 		this.state = {
-			username: 'dberrger',
-			password: 'testpwd'
+			username: '',
+			password: '',
+			submitted: false
 		}
 	}
     
     render() {
-        return (
-            <ScrollView style={loginScreen.scroll}>
-                    <Container>
-                        <Label text="Username" />
-                        <TextInput
-                            value= {this.state.username}
-                            onChangeText={ (username)=> this.setState({username})}
-                            style={loginScreen.textInput}
-                        />
-                    </Container>
-                    <Container>
-                        <Label text="Password" />
-                        <TextInput
-                            value= {this.state.password}
-                            onChangeText={(password)=> this.setState({password})}
-                            secureTextEntry={true}
-                            style={loginScreen.textInput}
-                        />
-                    </Container>
-                    <View style={loginScreen.footer}>
-                        <Container>
-                            <Button 
-                                label="Sign In"
-                                styles={{button: loginScreen.primaryButton, label: loginScreen.buttonWhiteText}} 
-                                onPress={ ()=> this.props.authenticate(this.state.username, this.state.password) }
-                                />
-                        </Container>
-                    </View>
-                </ScrollView>
-            
+		const { submitted, username, password } = this.state;
+        return ( 
+				              
+		<ScrollView style={loginScreen.scroll}>
+					<Text style={loginScreen.statusText}> {this.props.result} </Text>
+				<Container>
+					<Label text="Username" />
+					<TextInput
+						value= {this.state.username}
+						onChangeText={ (username)=> this.setState({username})}
+						style={loginScreen.textInput}
+					/>
+					{submitted && !username &&  <Text>Username is required</Text>  }
+				</Container>
+				<Container>
+					<Label text="Password" />
+					<TextInput
+						value= {this.state.password}
+						onChangeText={(password)=> this.setState({password})}
+						secureTextEntry={true}
+						style={loginScreen.textInput}
+					/>
+					{submitted && !password &&  <Text>Password is required</Text>  }
+				</Container>
+				<View style={loginScreen.footer}>
+					<Container>
+						<Button 
+							label="Sign In"
+							styles={{button: loginScreen.primaryButton, label: loginScreen.buttonWhiteText}} 
+							onPress={ ()=> {
+								this.setState({ submitted: true });
+								this.props.authenticate(username, password)
+							}}
+							/>
+					</Container>
+				</View>
+		</ScrollView> 
         );
     }
 };

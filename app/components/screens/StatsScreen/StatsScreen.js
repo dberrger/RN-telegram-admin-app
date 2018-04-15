@@ -30,7 +30,7 @@ const StatsScreen = ({data, findUser, setDateFilter, date, searchInput, getMessa
                 </View>
         </Card>
         { data.length ? data.map((item, i)=> <Item item={item} key={i}/>) 
-                      : <Card style={styles.emptyContainerStyle}>
+                      : <Card containerStyle={styles.emptyContainerStyle}>
                           <Text style={styles.emptyStyle}> Empty! </Text>
                           <Text style={styles.emptyStyle}> Use datepicker to fetch messages </Text>
                         </Card>
@@ -52,19 +52,20 @@ const styles = StyleSheet.create({
     },
     cardContainerStyle: {
         margin: 0,
+        marginBottom: 20,
         paddingTop: 20
     },
     emptyStyle : {
         fontSize: 22,
-        paddingTop: 30,
-        paddingBottom: 30,
-        color: "#000",
+        marginTop: 10,
+        paddingBottom: 10,
+        color: "#203929",
 		fontFamily: "Arial",
         fontStyle: "normal",
         textAlign: "center"
     },
     emptyContainerStyle: {
         margin: 0,
-        backgroundColor: 'red'
+        backgroundColor: '#8cd892'
     }
 });

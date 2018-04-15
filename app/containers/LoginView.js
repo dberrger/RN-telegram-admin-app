@@ -7,14 +7,17 @@ class LoginView extends Component {
 
 	authenticate = (username, password) => {
 		const { dispatch } = this.props;
-		dispatch(middleware.login(username, password));
+		if (username && password)
+			dispatch(middleware.login(username, password));
 	}
 
 	render() {
 		return (
-			<LoginScreen authenticate={this.authenticate}/>		
+			<LoginScreen authenticate={this.authenticate} result={this.props.result} />		
 		);
-	}
+	} 
 }
 
-export default connect(null)(LoginView);
+export default connect((state) => ({
+	result: state.loginReducer.result
+}))(LoginView);

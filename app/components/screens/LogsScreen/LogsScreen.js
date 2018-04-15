@@ -24,8 +24,8 @@ const LogsScreen = ({data, getDetailedInfo , currentQuery}) => (
 						</Text>
 		</Card>
 		: 
-		<Card>
-			<Text style={styles.preloadStyle}> Click on the chart to get into details info </Text>
+		<Card containerStyle={styles.preloadWrapperStyle}>
+			<Text style={styles.preloadStyle}> Click on the chart to get into details </Text>
 		</Card>
 		}
 	</ScrollView>
@@ -55,6 +55,11 @@ const styles = StyleSheet.create({
 	preloadStyle : {
 		fontSize: 20,
 		textAlign: 'center',
-		color: "#406299"
+		color: "#203929"
+	},
+	preloadWrapperStyle: {
+		marginTop: 20,
+		margin: 0,
+        backgroundColor: '#8cd892'
 	}
 });

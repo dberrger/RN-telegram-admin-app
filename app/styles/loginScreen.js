@@ -27,9 +27,17 @@ export const loginScreen = StyleSheet.create({
       color: '#595856'
     },
     primaryButton: {
-      backgroundColor: '#34A853'
+      backgroundColor: '#488D9D'
     },
     footer: {
     marginTop: 100
+    },
+    statusText: {
+      textAlign: "center",
+      fontSize: 22,
+      paddingBottom: 20,
+      color: "#940700",
+      fontFamily: "Arial",
+      fontStyle: "normal",
     }
   });

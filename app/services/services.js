@@ -9,7 +9,6 @@ export const services = {
 const BASE_URL = 'https://c23ac6cd.ngrok.io';
 
 async function login(username, password) {
-    console.log("!!! "+ username);
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
