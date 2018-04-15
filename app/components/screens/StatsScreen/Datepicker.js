@@ -5,7 +5,7 @@ export default class Datepicker extends Component {
   constructor(props){
     super(props)
     this.state = {
-     date: new Date()
+     date: ''
     }
   }
 
@@ -18,8 +18,6 @@ export default class Datepicker extends Component {
         placeholder="select date"
         androidMode = 'spinner'
         format="YYYY-MM-DD"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
         customStyles={dateStyle}
 		onDateChange={(date) => {
 			this.setState({date: date});

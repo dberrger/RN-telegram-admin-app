@@ -24,7 +24,7 @@ const StatsScreen = ({data, findUser, setDateFilter, date, searchInput, getMessa
                         <Input
                             value={searchInput}
                             onChangeText={ (value) => findUser(value)}
-                            placeholder='Enter username.. '
+                            placeholder='Search in messages.. '
                         />
                     </View>
                 </View>

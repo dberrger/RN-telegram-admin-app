@@ -26,12 +26,12 @@ static navigationOptions = {
   }
 
 	setDateFilter = (date) => {
-		console.log("DATE: ", date);
 		this.setState({selectedDate: date});
 	}
 
 	getMessagesByDate = () => {
-		this.props.getLogs(this.state.selectedDate);
+		if(this.state.selectedDate)
+			this.props.getLogs(this.state.selectedDate);
 	}
 
 
@@ -53,7 +53,7 @@ static navigationOptions = {
 }
 
 export default connect((state)=>({
-  data: state.statisticsReducer.statistics.filter(user => user.first_name.includes(state.searchUserReducer.searchValue)),
+  data: state.statisticsReducer.statistics.filter(user => user.text.includes(state.searchUserReducer.searchValue)),
   fetching: state.statisticsReducer.fetching
 }),
 (dispatch) => ({

@@ -15,7 +15,7 @@ const Item = ({item}) => (
                 </Text>
                 <Text  style={styles.pStyle}>
                     <Text style={styles.keyWords}>Date: </Text>
-                    <Text style={styles.timeStyle}> {Date(item.date)} </Text>
+                    <Text style={styles.timeStyle}> {item.date} </Text>
                 </Text>
             </View>
             <Divider/>

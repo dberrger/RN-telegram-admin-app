@@ -8,7 +8,7 @@ import { middleware } from "../../actions/middleware";
 const HomeScreen = ({fetchLogs, fetchStats}) => {
  
     return (
-		<Card>
+		<Card containerStyle={styles.wrapper}>
 			<Text h4 style={styles.textHeaderStyle}> Menu </Text>
 			<Divider/>
 			<Button
@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		textAlign: 'center',
 		paddingBottom: 10
+	},
+	wrapper: {
+		flex: 1,
+		marginBottom: 10,
 	}
 });
 
